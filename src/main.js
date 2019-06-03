@@ -9,7 +9,11 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios' // 1、在这里引入axios
 
+import echarts from 'echarts'
+import yunnan from 'echarts/map/js/province/yunnan'
+Vue.prototype.$echarts=echarts
 
+import 'jquery'
 
 
 Vue.prototype.$axios = axios; // 2、在vue中使用axios

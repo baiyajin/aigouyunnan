@@ -33,10 +33,34 @@
     return "rgba("+r+','+g+','+b+','+opacity+")";
   }
 
+
+
+
+
+
     export default {
       checkPhone,
       getRandmColor,
       hint_success,
-      hint_error
-    }
+      hint_error,
+      getUrlKey: function (name) {
+        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.href) || [, ""])[1].replace(/\+/g, '%20')) || null
+      },
+      compileStr:function(code){      //对字符串进行加密
+        var c=String.fromCharCode(code.charCodeAt(0)+code.length);
+        for(var i=1;i<code.length;i++){
+           c+=String.fromCharCode(code.charCodeAt(i)+code.charCodeAt(i-1));
+        }
+        return escape(c);
+      },
+      uncompileStr:function(code){  //字符串进行解密
+       code=unescape(code);
+       var c=String.fromCharCode(code.charCodeAt(0)-code.length);
+       for(var i=1;i<code.length;i++){
+          c+=String.fromCharCode(code.charCodeAt(i)-c.charCodeAt(i-1));
+        }
+      return c;
+    },
+
+  }
 </script>

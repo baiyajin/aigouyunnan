@@ -15,7 +15,7 @@ module.exports = {
     proxyTable: {
       "/":{
         // target: 'http://192.168.8.19:8018',
-        target: 'http://192.168.8.29:8018',
+        // target: 'http://192.168.8.29:8018',
         changeOrigin: true,
         pathRewrite: {
           '^/api': '/'//‘^/api’代替target里面的地址，后面组件中我们调接口时直接用api代替 。比如我要调用’http://47.104.218.122:8087/dictionaryType‘，直接写‘/api/dictionaryType’即可。
@@ -56,8 +56,10 @@ module.exports = {
 
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    // assetsSubDirectory: 'static',
+    // assetsPublicPath: '/',
+    assetsSubDirectory: './static',
+    assetsPublicPath: './',
 
     /**
      * Source Maps
